@@ -21,21 +21,15 @@ public class APIClient {
 
         // OkHttpClient client = new OkHttpClient.Builder().build();
 
-        // Gson gson = new GsonBuilder().setLenient().create();
+        Gson gson = new GsonBuilder().setLenient().create();
 
 //        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 //        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().build();
-
-<<<<<<< Updated upstream:app/src/main/java/com/example/cooless/API/APIClient.java
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-=======
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.duffel.com/air/")
->>>>>>> Stashed changes:app/src/main/java/com/example/cooless/APIClient.java
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
