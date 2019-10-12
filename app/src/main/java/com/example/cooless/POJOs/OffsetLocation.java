@@ -3,10 +3,10 @@ package com.example.cooless.POJOs;
 import com.google.gson.annotations.SerializedName;
 
 public class OffsetLocation {
-    @SerializedName("location")
-    public OffsetAirport location;
+    @SerializedName("airport")
+    public String airport;
 
-    public OffsetLocation(OffsetAirport location) {
-        this.location = location;
+    public OffsetLocation(String airport) {
+        this.airport = airport;
     }
 }

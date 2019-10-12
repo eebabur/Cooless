@@ -2,7 +2,6 @@ package com.example.cooless;
 import com.example.cooless.API.APIClient;
 import com.example.cooless.API.CloverlyInterface;
 import com.example.cooless.POJOs.OffestResponse;
-import com.example.cooless.POJOs.OffsetAirport;
 import com.example.cooless.POJOs.OffsetLocation;
 import com.example.cooless.POJOs.OffsetMatch;
 import com.example.cooless.POJOs.OffsetRequest;
@@ -20,8 +19,7 @@ public class Test {
                 .getClient("https://api.cloverly.com/2019-03-beta/")
                 .create(CloverlyInterface.class);
         OffsetWeight offsetWeight = new OffsetWeight(95, "kg");
-        OffsetAirport offsetAirport = new OffsetAirport("sfo");
-        OffsetLocation offsetLocation = new OffsetLocation(offsetAirport);
+        OffsetLocation offsetLocation = new OffsetLocation("lhr");
         OffsetMatch offsetMatch = new OffsetMatch(offsetLocation);
         OffsetRequest offsetRequest = new OffsetRequest(offsetWeight, offsetMatch);
         Call<OffestResponse> call1 = apiInterface.getOffset(offsetRequest);
@@ -29,7 +27,7 @@ public class Test {
             @Override
             public void onResponse(Call<OffestResponse> call, Response<OffestResponse> response) {
                 OffestResponse offestResponse = response.body();
-                System.out.println(offestResponse);
+                System.out.println(offestResponse.totalCostCents);
             }
 
             @Override
