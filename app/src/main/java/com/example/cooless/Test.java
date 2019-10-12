@@ -25,6 +25,9 @@ public class Test {
         OffsetMatch offsetMatch = new OffsetMatch(offsetLocation);
         OffsetRequest offsetRequest = new OffsetRequest(offsetWeight, offsetMatch);
         Call<OffestResponse> call1 = apiInterface.getOffset(offsetRequest);
+
+
+
         call1.enqueue(new Callback<OffestResponse>() {
             @Override
             public void onResponse(Call<OffestResponse> call, Response<OffestResponse> response) {

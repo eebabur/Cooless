@@ -5,6 +5,7 @@ import com.example.cooless.POJOs.OffsetRequest;
 import com.example.cooless.POJOs.PaymentRequest;
 import com.example.cooless.POJOs.PaymentResponse;
 
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
@@ -17,12 +18,12 @@ public interface CloverlyInterface {
                 "Accept: application/json",
                 "Authorization: Bearer public_key:e33eaf017307254f"
         })
-        Call<OffestResponse> getOffset(@Body OffsetRequest offsetRequest);
+        Single<Call<OffestResponse>> getOffset(@Body OffsetRequest offsetRequest);
 
         @POST("purchases")
         @Headers({
                 "Accept: application/json",
                 "Authorization: Bearer public_key:e33eaf017307254f"
         })
-        Call<PaymentResponse> purchase(@Body PaymentRequest paymentRequest);
+        Single<Call<PaymentResponse>> purchase(@Body PaymentRequest paymentRequest);
 }
