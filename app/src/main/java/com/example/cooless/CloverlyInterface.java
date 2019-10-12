@@ -1,5 +1,6 @@
 package com.example.cooless;
 
+import com.example.cooless.POJOs.MultipleResource;
 import com.example.cooless.POJOs.User;
 
 import retrofit2.Call;
@@ -17,13 +18,4 @@ public interface CloverlyInterface {
 
         @POST("/api/users")
         Call<User> createUser(@Body User user);
-
-        @GET("/api/users?")
-        Call<UserList> doGetUserList(@Query("page") String page);
-
-        @FormUrlEncoded
-        @POST("/api/users?")
-        Call<UserList> doCreateUserWithField(@Field("name") String name, @Field("job") String job);
-    }
-
 }
