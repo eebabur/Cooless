@@ -2,7 +2,7 @@ package com.example.cooless.POJOs;
 
 import com.google.gson.annotations.SerializedName;
 
-public class OffestResponse {
+public class OffsetResponse {
     @SerializedName("slug")
     public String slug;
     @SerializedName("total_cost_in_usd_cents")
