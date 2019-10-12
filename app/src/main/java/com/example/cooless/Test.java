@@ -1,4 +1,5 @@
 package com.example.cooless;
+<<<<<<< Updated upstream
 import com.example.cooless.API.APIClient;
 import com.example.cooless.API.CloverlyInterface;
 import com.example.cooless.POJOs.OffsetResponse;
@@ -6,13 +7,25 @@ import com.example.cooless.POJOs.OffsetLocation;
 import com.example.cooless.POJOs.OffsetMatch;
 import com.example.cooless.POJOs.OffsetRequest;
 import com.example.cooless.POJOs.OffsetWeight;
+=======
+
+import com.example.cooless.POJOs.withData;
+import com.example.cooless.POJOs.RequestData;
+import com.example.cooless.POJOs.RequestSlice;
+import com.example.cooless.POJOs.RequestPassenger;
+import com.example.cooless.POJOs.ReqObject;
+
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> Stashed changes
 
 import io.reactivex.Single;
 
 public class Test {
-    static CloverlyInterface apiInterface;
+    static DuffelInterface apiInterface;
 
     public static void main(String[] args) {
+<<<<<<< Updated upstream
         apiInterface = APIClient
                 .getClient("https://api.cloverly.com/2019-03-beta/")
                 .create(CloverlyInterface.class);
@@ -51,5 +64,29 @@ public class Test {
 //                call.cancel();
 //            }
 //        });
+=======
+
+        RequestPassenger passenger = new RequestPassenger("adult");
+        List<RequestPassenger> passengers = new ArrayList<RequestPassenger>();
+        passengers.add(passenger);
+        RequestSlice requestSlice = new RequestSlice("2020-02-09", "FRA", "LHR");
+        List<RequestSlice> requestSlices = new ArrayList<RequestSlice>();
+        requestSlices.add(requestSlice);
+        RequestData requestData = new RequestData("economy", requestSlices, passengers);
+        ReqObject reqObject = new ReqObject(requestData);
+        apiInterface = APIClient.getClient().create(DuffelInterface.class);
+        Call call1 = apiInterface.getAllOffers(reqObject);
+        call1.enqueue(new Callback<withData>() {
+            @Override
+            public void onResponse(Call<withData> call, Response<withData> response) {
+                System.out.println(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<withData> call, Throwable t) {
+                call.cancel();
+            }
+        });
+>>>>>>> Stashed changes
     }
 }
