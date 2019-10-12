@@ -21,31 +21,228 @@
         app:layout_constraintTop_toTopOf="parent"
         >
 
+        <ImageView
+            android:id="@+id/airlinePicture"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/airlineName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Turkish Airlines"
+            app:layout_constraintBottom_toBottomOf="@+id/airlinePicture"
+            app:layout_constraintStart_toEndOf="@+id/airlinePicture"
+            app:layout_constraintTop_toTopOf="@+id/airlinePicture"
+            />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Wednesday, dd Mmm yyyy"
+            app:layout_constraintStart_toStartOf="@+id/departure"
+            app:layout_constraintTop_toBottomOf="@+id/airlinePicture"
+            />
+
+        <TextView
+            android:id="@+id/departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23:59"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toStartOf="@+id/timeSeparator"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            />
+
+        <TextView
+            android:id="@+id/origin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FRA"
+            app:layout_constraintTop_toBottomOf="@+id/departure"
+            app:layout_constraintStart_toStartOf="@+id/departure"
+            app:layout_constraintEnd_toEndOf="@+id/departure"
+            />
+
+        <ImageView
+            android:id="@+id/timeSeparator"
+            android:layout_width="64dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@+id/departure"
+            app:layout_constraintEnd_toStartOf="@+id/arrival"
+            app:layout_constraintStart_toEndOf="@+id/departure"
+            app:layout_constraintTop_toTopOf="@+id/departure"
+            />
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2h 01m"
+            app:layout_constraintBottom_toBottomOf="@+id/origin"
+            app:layout_constraintEnd_toEndOf="@+id/timeSeparator"
+            app:layout_constraintStart_toStartOf="@+id/timeSeparator"
+            app:layout_constraintTop_toBottomOf="@+id/departure"
+            />
+
+        <TextView
+            android:id="@+id/arrival"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02:20"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/timeSeparator"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            />
+
+        <TextView
+            android:id="@+id/destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LHR"
+            app:layout_constraintTop_toBottomOf="@+id/arrival"
+            app:layout_constraintStart_toStartOf="@+id/arrival"
+            app:layout_constraintEnd_toEndOf="@+id/arrival"
+            />
+
+        <TextView
+            android:id="@+id/priceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="Price"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/price"
+            app:layout_constraintEnd_toStartOf="@+id/price"
+            app:layout_constraintTop_toTopOf="@+id/price"
+            app:layout_constraintVertical_bias="0.76"
+            />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="£xxx"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/offsetContainer"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
+    <FrameLayout
+        android:id="@+id/offsetCta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/stroked_bg"
-
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flightContainer"
         >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Tap to offset your carbon footprint"
+            />
+    </FrameLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/offsetContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/stroked_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flightContainer"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/sourceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="I want my offset to come from:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <Spinner
+            android:id="@+id/sourceSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sourceLabel"
+            />
+
+        <TextView
+            android:id="@+id/amountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="I want to offset 28% of my emissions."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sourceSpinner"
+            />
+
+        <SeekBar
+            android:id="@+id/amountSlider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:thumb="@drawable/thumb_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amountLabel"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
+        android:id="@+id/cta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Offset and Go for £xxx"
-        app:layout_constraintTop_toBottomOf="@+id/offsetContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offsetContainer"
+        app:layout_constraintVertical_bias="1.0"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
