@@ -1,5 +1,6 @@
-package com.example.cooless;
+package com.example.cooless.API;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -7,12 +8,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class APIClient {
     private static Retrofit retrofit = null;
 
-    static Retrofit getClient() {
+    public static Retrofit getClient(String url) {
 
         OkHttpClient client = new OkHttpClient.Builder().build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://reqres.in")
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
