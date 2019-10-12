@@ -6,6 +6,8 @@ import com.example.cooless.POJOs.OffsetLocation;
 import com.example.cooless.POJOs.OffsetMatch;
 import com.example.cooless.POJOs.OffsetRequest;
 import com.example.cooless.POJOs.OffsetWeight;
+import com.example.cooless.POJOs.PaymentRequest;
+import com.example.cooless.POJOs.PaymentResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,5 +37,21 @@ public class Test {
                 call.cancel();
             }
         });
+        PaymentRequest purchase = new PaymentRequest("20191012-9077b0c2e6f077e43e47c432e7607f30");
+        Call<PaymentResponse> call2 = apiInterface.purchase(purchase);
+        call2.enqueue(new Callback<PaymentResponse>() {
+            @Override
+            public void onResponse(Call<PaymentResponse> call, Response<PaymentResponse> response) {
+                PaymentResponse paymentResponse = response.body();
+                System.out.println(paymentResponse.prettyUrl);
+            }
+
+            @Override
+            public void onFailure(Call<PaymentResponse> call, Throwable t) {
+                call.cancel();
+            }
+        });
+
+
     }
 }

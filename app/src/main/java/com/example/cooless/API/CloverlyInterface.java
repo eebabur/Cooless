@@ -2,6 +2,8 @@ package com.example.cooless.API;
 
 import com.example.cooless.POJOs.OffestResponse;
 import com.example.cooless.POJOs.OffsetRequest;
+import com.example.cooless.POJOs.PaymentRequest;
+import com.example.cooless.POJOs.PaymentResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -17,4 +19,10 @@ public interface CloverlyInterface {
         })
         Call<OffestResponse> getOffset(@Body OffsetRequest offsetRequest);
 
+        @POST("purchases")
+        @Headers({
+                "Accept: application/json",
+                "Authorization: Bearer public_key:e33eaf017307254f"
+        })
+        Call<PaymentResponse> purchase(@Body PaymentRequest paymentRequest);
 }
