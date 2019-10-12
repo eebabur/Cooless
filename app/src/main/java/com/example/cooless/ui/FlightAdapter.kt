@@ -1,6 +1,5 @@
 package com.example.cooless.ui
 
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,7 +36,7 @@ class FlightAdapter(private val onItemClick: (Flight) -> Unit) : RecyclerView.Ad
         val departure: TextView = view.findViewById(R.id.departure)
         val destination: TextView = view.findViewById(R.id.destination)
         val arrival: TextView = view.findViewById(R.id.arrival)
-        val price: TextView = view.findViewById(R.id.price)
+        val price: TextView = view.findViewById(R.id.ticketPrice)
 
         fun bind(flight: Flight, onItemClick: (Flight) -> Unit) {
             itemView.setOnClickListener { onItemClick(flight) }
