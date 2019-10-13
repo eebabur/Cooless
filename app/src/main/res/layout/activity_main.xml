@@ -73,6 +73,7 @@
                 android:id="@+id/from"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
                 android:text="JFK" />
 
             <TextView
@@ -86,6 +87,7 @@
                 android:id="@+id/to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
                 android:text="LHR" />
 
             <TextView
@@ -100,6 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:editable="false"
+                android:fontFamily="@font/montserrat"
                 android:text="2020-02-09" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
