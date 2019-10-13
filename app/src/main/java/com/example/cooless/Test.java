@@ -21,26 +21,26 @@ public class Test {
     public static void main(String[] args) {
 
 
-        RequestPassenger passenger = new RequestPassenger("adult");
-        List<RequestPassenger> passengers = new ArrayList<RequestPassenger>();
-        passengers.add(passenger);
-        RequestSlice requestSlice = new RequestSlice("2020-02-09", "FRA", "LHR");
-        List<RequestSlice> requestSlices = new ArrayList<RequestSlice>();
-        requestSlices.add(requestSlice);
-        RequestData requestData = new RequestData("economy", requestSlices, passengers);
-        ReqObject reqObject = new ReqObject(requestData);
-        apiInterface = APIClient.getClient("https://api.duffel.com/air/").create(DuffelInterface.class);
-        Call call1 = apiInterface.getAllOffers(reqObject);
-        call1.enqueue(new Callback<MainResponse>() {
-            @Override
-            public void onResponse(Call<MainResponse> call, Response<MainResponse> response) {
-                System.out.println(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<MainResponse> call, Throwable t) {
-                call.cancel();
-            }
-        });
+//        RequestPassenger passenger = new RequestPassenger("adult");
+//        List<RequestPassenger> passengers = new ArrayList<RequestPassenger>();
+//        passengers.add(passenger);
+//        RequestSlice requestSlice = new RequestSlice("2020-02-09", "FRA", "LHR");
+//        List<RequestSlice> requestSlices = new ArrayList<RequestSlice>();
+//        requestSlices.add(requestSlice);
+//        RequestData requestData = new RequestData("economy", requestSlices, passengers);
+//        ReqObject reqObject = new ReqObject(requestData);
+//        apiInterface = APIClient.getClient("https://api.duffel.com/air/").create(DuffelInterface.class);
+//        Call call1 = apiInterface.getAllOffers(reqObject);
+//        call1.enqueue(new Callback<MainResponse>() {
+//            @Override
+//            public void onResponse(Call<MainResponse> call, Response<MainResponse> response) {
+//                System.out.println(response.body());
+//            }
+//
+//            @Override
+//            public void onFailure(Call<MainResponse> call, Throwable t) {
+//                call.cancel();
+//            }
+//        });
     }
 }

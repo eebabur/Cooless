@@ -4,6 +4,7 @@ import com.example.cooless.POJOs.responseDuffel.MainResponse;
 import com.example.cooless.POJOs.ReqObject;
 
 
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
@@ -23,5 +24,5 @@ public interface DuffelInterface {
             "Content-Length: 259",
             "Connection: keep-alive",
     })
-    Call<MainResponse> getAllOffers(@Body ReqObject reqObject);
+    Single<MainResponse> getAllOffers(@Body ReqObject reqObject);
 }
