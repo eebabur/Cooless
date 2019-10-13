@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.cooless.LogoMapper
 import com.example.cooless.R
 import com.example.cooless.model.Flight
 
@@ -56,7 +58,7 @@ class FlightAdapter(private val onItemClick: (Flight) -> Unit) :
                 leaf.visibility = View.GONE
             }
 
-            //Glide.with(airlinePicture).load(flight.airlinePicture).into(airlinePicture);
+            Glide.with(airlinePicture).load(LogoMapper.airlineLogos.get(flight.airlineName) ?: LogoMapper.airlineLogos.get("default")).into(airlinePicture);
             airlineName.text = flight.airlineName
             origin.text = flight.origin
             departure.text = flight.departure
