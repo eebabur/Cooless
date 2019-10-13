@@ -8,4 +8,128 @@
     tools:context=".ui.ProfileActivity"
     >
 
+    <ImageView
+        android:id="@+id/userIcon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/milestoneCard"
+        tools:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="177dp"
+        android:layout_height="22dp"
+        android:text="FirstName LastName"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/userEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/userEmail"
+        app:layout_constraintTop_toBottomOf="@+id/milestoneCard"
+        app:layout_constraintVertical_bias="0.962" />
+
+    <TextView
+        android:id="@+id/userEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="80dp"
+        android:text="useremail@email.com"
+        app:layout_constraintBottom_toTopOf="@+id/passportForm"
+        app:layout_constraintStart_toEndOf="@+id/userIcon" />
+
+    <include
+        android:id="@+id/milestoneCard"
+        layout="@layout/milestone"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/passportField"
+        android:layout_width="362dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="88dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userIcon" />
+
+    <TextView
+        android:id="@+id/passportForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passport No."
+        app:layout_constraintBottom_toTopOf="@+id/passportField"
+        app:layout_constraintStart_toStartOf="@+id/passportField"
+        app:layout_constraintTop_toBottomOf="@+id/userIcon"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/preferences"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="Preferences"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dobField" />
+
+    <EditText
+        android:id="@+id/dobField"
+        android:layout_width="362dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passportField" />
+
+    <Switch
+        android:id="@+id/paymentSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:switchPadding="20dp"
+        android:text="One-Click Payment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/emissionsSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:switchPadding="20dp"
+        android:text="Lower Emissions First"
+        app:layout_constraintBottom_toTopOf="@+id/paymentSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preferences"
+        app:layout_constraintVertical_bias="0.725" />
+
+    <TextView
+        android:id="@+id/dobForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Date of Birth"
+        app:layout_constraintBottom_toTopOf="@+id/dobField"
+        app:layout_constraintStart_toStartOf="@+id/dobField"
+        app:layout_constraintTop_toBottomOf="@+id/passportField"
+        app:layout_constraintVertical_bias="1.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

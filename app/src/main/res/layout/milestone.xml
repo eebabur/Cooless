@@ -20,22 +20,22 @@
         android:layout_height="119dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/nextSteps"
             android:layout_width="160dp"
             android:layout_height="39dp"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="28dp"
             android:text="Offset $3 more of carbon to reach the next level!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/milestoneIcon"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.093" />
+            app:layout_constraintTop_toBottomOf="@+id/level"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="32dp"
             android:text="Level 1: Leaf"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/milestoneIcon"
@@ -43,13 +43,13 @@
 
         <ImageView
             android:id="@+id/milestoneIcon"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="86dp"
+            android:layout_height="81dp"
             android:layout_marginStart="64dp"
-            android:layout_marginBottom="28dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:background="@color/colorAccent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
