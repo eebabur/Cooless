@@ -23,23 +23,23 @@
         <TextView
             android:id="@+id/emissionAdvantage"
             android:layout_width="match_parent"
-            android:background="#00A698"
-            android:paddingVertical="4dp"
-            android:paddingHorizontal="12dp"
-            tools:text="45% less CO2 emission"
-            android:textColor="@android:color/white"
             android:layout_height="wrap_content"
+            android:background="#00A698"
+            android:fontFamily="@font/montserrat"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:textColor="@android:color/white"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            tools:text="45% less CO2 emission" />
 
         <TextView
             android:id="@+id/airlineName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:text="Airline Name"
             app:layout_constraintBottom_toTopOf="@+id/departure"
-            app:layout_constraintStart_toStartOf="@+id/departure"
-            />
+            app:layout_constraintStart_toStartOf="@+id/departure" />
 
         <ImageView
             android:id="@+id/airlinePicture"
@@ -60,23 +60,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:fontFamily="@font/varelaround_regular"
             android:text="hh:mm"
             android:textSize="24sp"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/airlinePicture"
-            app:layout_constraintTop_toBottomOf="@+id/emissionAdvantage"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/emissionAdvantage" />
 
         <TextView
             android:id="@+id/origin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:text="LHR"
             app:layout_constraintEnd_toEndOf="@+id/departure"
             app:layout_constraintStart_toStartOf="@+id/departure"
-            app:layout_constraintTop_toBottomOf="@+id/departure"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/departure" />
 
         <ImageView
             android:id="@+id/timeSeparator"
@@ -94,37 +94,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:fontFamily="@font/varelaround_regular"
             android:text="hh:mm"
-            android:textSize="24sp"
 
+            android:textSize="24sp"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/timeSeparator"
-            app:layout_constraintTop_toBottomOf="@+id/emissionAdvantage"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/emissionAdvantage" />
 
         <TextView
             android:id="@+id/destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:text="FRA"
             app:layout_constraintEnd_toEndOf="@+id/arrival"
             app:layout_constraintStart_toStartOf="@+id/arrival"
-            app:layout_constraintTop_toBottomOf="@+id/arrival"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/arrival" />
 
         <TextView
             android:id="@+id/ticketPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/varelaround_regular"
             android:text="£xxx"
             android:textSize="24sp"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emissionAdvantage"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/emissionAdvantage" />
 
         <ImageView
             android:id="@+id/leaf"

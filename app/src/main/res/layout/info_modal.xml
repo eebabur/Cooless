@@ -13,48 +13,55 @@ tools:context=".ui.ProfileActivity"
         android:id="@+id/infoIcon"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_marginTop="136dp"
-        android:background="@color/colorAccent"
+        android:layout_marginTop="60dp"
+        android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/accuracy"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:text="These emission calculations are not exact. However, we are determined to help you minimise the footprint of your flight.  "
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/choices"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sources"
-        app:layout_constraintVertical_bias="0.478" />
-
-    <TextView
-        android:id="@+id/choices"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="140dp"
-        android:text="Each flight destination has a range of carbon offset projects to choose from, and we let you choose how much you’d like to contribute!"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_info_globe" />
 
     <TextView
         android:id="@+id/sources"
-        android:layout_width="220dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/montserrat"
         android:text="We gather our flights emissions data from Duffel, whilst our carbon offset options are powered by Cloverly.  "
         android:textAlignment="center"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoIcon" />
+
+    <TextView
+        android:id="@+id/accuracy"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="These emission calculations are not exact. However, we are determined to help you minimise the footprint of your flight.  "
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/choices"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sources"
+        app:layout_constraintVertical_bias="0.528" />
+
+    <TextView
+        android:id="@+id/choices"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="84dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Each flight destination has a range of carbon offset projects to choose from, and we let you choose how much you’d like to contribute!"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

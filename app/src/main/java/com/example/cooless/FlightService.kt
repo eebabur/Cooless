@@ -14,19 +14,20 @@ interface FlightService {
 
 class FlightServiceMockImpl : FlightService {
     override fun getFlights(from: String, to: String, date: String): Single<List<Flight>> =
-        Single.just(flights)
+        Single.just(emptyList<Flight>())
             .delay(2000, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
 
-    private val flights = List(100) {
-        Flight(
-            airlinePicture = "https://www.airporthaber.com/wk-uploads/news/thy2_1017.jpg",
-            airlineName = "Airline $it",
-            origin = "Origin $it",
-            departure = "10:25",
-            destination = "Destination $it",
-            arrival = "17:48",
-            price = "£${(Random.nextInt(100) * 10)}",
-            emissionAdvantage = if (it%5 == 0) it else null
-        )
-    }
+//    private val flights = List(100) {
+//        Flight(
+//            airlinePicture = "https://www.airporthaber.com/wk-uploads/news/thy2_1017.jpg",
+//            airlineName = "Airline $it",
+//            origin = "Origin $it",
+//            da
+//            departure = "10:25",
+//            destination = "Destination $it",
+//            arrival = "17:48",
+//            price = "£${(Random.nextInt(100) * 10)}",
+//            emissionAdvantage = if (it%5 == 0) it else null
+//        )
+//    }
 }

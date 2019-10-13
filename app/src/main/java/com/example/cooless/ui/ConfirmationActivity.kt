@@ -20,7 +20,7 @@ class ConfirmationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_confirmation)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setTitle("Confirmation")
+        supportActionBar?.title = "Confirmation"
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -31,6 +31,17 @@ class ConfirmationActivity : AppCompatActivity() {
 
 
     companion object {
+        var Intent.params by IntentExtra.Serializable<ConfirmationParams>()
 
+        fun createIntent(context: Context, params: ConfirmationParams) =
+            Intent(context, ConfirmationActivity::class.java).apply {
+                this.params = params
+            }
     }
+
+    data class ConfirmationParams(
+        val name: String,
+        val category: String,
+        val url: String
+    ) : Serializable
 }

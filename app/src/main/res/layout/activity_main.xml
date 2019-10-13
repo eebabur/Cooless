@@ -36,73 +36,71 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
         android:text="ready, offset, go!"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/form"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="8dp"
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slogan"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/slogan">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="24dp"
-            >
+            android:padding="24dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="From"
-                />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="From" />
 
             <EditText
                 android:id="@+id/from"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:text="JFK" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="To"
                 android:layout_marginTop="8dp"
-                />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="To" />
 
             <EditText
                 android:id="@+id/to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:text="LHR" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Departure Date"
                 android:layout_marginTop="8dp"
-                />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Departure Date" />
 
             <EditText
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:editable="false"
-                />
+                android:text="2020-02-09" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -113,6 +111,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/button_bg"
+        android:fontFamily="@font/varelaround_regular"
         android:padding="12dp"
         android:text="Search!"
         android:textColor="@android:color/white"

@@ -21,10 +21,10 @@
 
         <TextView
             android:id="@+id/nextSteps"
-            android:layout_width="160dp"
-            android:layout_height="39dp"
+            android:layout_width="203dp"
+            android:layout_height="40dp"
             android:layout_marginStart="28dp"
-            android:text="Offset $3 more of carbon to reach the next level!"
+            android:text="Offset $350 more of carbon to reach the next level!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/milestoneIcon"
             app:layout_constraintTop_toBottomOf="@+id/level"
@@ -36,7 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="32dp"
-            android:text="Level 1: Leaf"
+            android:fontFamily="@font/montserrat"
+            android:text="Level 7: Forest"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/milestoneIcon"
             app:layout_constraintTop_toTopOf="parent" />
@@ -45,12 +46,13 @@
             android:id="@+id/milestoneIcon"
             android:layout_width="86dp"
             android:layout_height="81dp"
-            android:layout_marginStart="64dp"
+            android:layout_marginStart="52dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@color/colorAccent" />
+            app:srcCompat="@drawable/ic_forest"
+            tools:background="#FFFFFF" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

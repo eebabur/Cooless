@@ -9,9 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cooless.FlightService
-import com.example.cooless.FlightServiceMockImpl
-import com.example.cooless.R
+import com.example.cooless.*
 import com.example.cooless.model.Flight
 import com.example.cooless.ui.FlightDetailsActivity.FlightParams
 import io.reactivex.disposables.CompositeDisposable
@@ -23,7 +21,7 @@ import java.io.Serializable
 class FlightsActivity : AppCompatActivity() {
 
     val disposable = CompositeDisposable()
-    val flightService: FlightService = FlightServiceMockImpl()
+    val flightService: FlightDataSource = DataSourceProvider.flightsDataSource
     lateinit var list: RecyclerView
     lateinit var loadingSpinner: ProgressBar
     lateinit var adapter: FlightAdapter
@@ -37,7 +35,7 @@ class FlightsActivity : AppCompatActivity() {
         supportActionBar?.setTitle("${intent.searchParams?.from} - ${intent.searchParams?.to} / ${intent.searchParams?.date}".toUpperCase())
 
         list.layoutManager = LinearLayoutManager(this)
-        adapter = FlightAdapter { showFlightDetails() }
+        adapter = FlightAdapter { showFlightDetails(it) }
         list.adapter = adapter
 
         retryButton.setOnClickListener {
@@ -57,8 +55,17 @@ class FlightsActivity : AppCompatActivity() {
         return true
     }
 
-    private fun showFlightDetails() {
-        val params = FlightParams()
+    private fun showFlightDetails(flight: Flight) {
+        val params = FlightParams(
+            airlineName = flight.airlineName,
+            origin = flight.origin,
+            departure = flight.departure,
+            destination = flight.destination,
+            arrival = flight.destination,
+            duration = flight.duration,
+            price = flight.price,
+            emission = flight.emission
+        )
         val intent = FlightDetailsActivity.createIntent(this, params)
         startActivity(intent)
     }
@@ -67,7 +74,7 @@ class FlightsActivity : AppCompatActivity() {
         intent.searchParams
             ?.let {
                 disposable.add(
-                    flightService.getFlights(it.from, it.to, it.date)
+                    flightService.getAllFlights(it.from, it.to, it.date)
                         .doOnSubscribe { showLoading() }
                         .subscribe(
                             { showFlights(it) },

@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flightContainer"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -33,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:fontFamily="@font/montserrat"
             android:text="Turkish Airlines"
             app:layout_constraintBottom_toBottomOf="@+id/airlinePicture"
             app:layout_constraintStart_toEndOf="@+id/airlinePicture"
@@ -43,7 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Wednesday, dd Mmm yyyy"
+            android:fontFamily="@font/montserrat"
+            android:text="Sunday, 09 Feb 2020"
             app:layout_constraintStart_toStartOf="@+id/departure"
             app:layout_constraintTop_toBottomOf="@+id/airlinePicture" />
 
@@ -51,6 +53,7 @@
             android:id="@+id/departure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/varelaround"
             android:text="23:59"
             android:textSize="36sp"
             app:layout_constraintEnd_toStartOf="@+id/timeSeparator"
@@ -63,9 +66,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FRA"
-            app:layout_constraintTop_toBottomOf="@+id/departure"
+            app:layout_constraintEnd_toEndOf="@+id/departure"
             app:layout_constraintStart_toStartOf="@+id/departure"
-            app:layout_constraintEnd_toEndOf="@+id/departure" />
+            app:layout_constraintTop_toBottomOf="@+id/departure" />
 
         <ImageView
             android:id="@+id/timeSeparator"
@@ -73,16 +76,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            app:srcCompat="@drawable/ic_traced_plane"
             app:layout_constraintBottom_toBottomOf="@+id/departure"
             app:layout_constraintEnd_toStartOf="@+id/arrival"
             app:layout_constraintStart_toEndOf="@+id/departure"
-            app:layout_constraintTop_toTopOf="@+id/departure" />
+            app:layout_constraintTop_toTopOf="@+id/departure"
+            app:srcCompat="@drawable/ic_traced_plane" />
 
         <TextView
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:text="2h 01m"
             app:layout_constraintBottom_toBottomOf="@+id/origin"
             app:layout_constraintEnd_toEndOf="@+id/timeSeparator"
@@ -93,6 +97,7 @@
             android:id="@+id/arrival"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/varelaround"
             android:text="02:20"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -103,16 +108,18 @@
             android:id="@+id/destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:text="LHR"
-            app:layout_constraintTop_toBottomOf="@+id/arrival"
+            app:layout_constraintEnd_toEndOf="@+id/arrival"
             app:layout_constraintStart_toStartOf="@+id/arrival"
-            app:layout_constraintEnd_toEndOf="@+id/arrival" />
+            app:layout_constraintTop_toBottomOf="@+id/arrival" />
 
         <TextView
             android:id="@+id/priceLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
+            android:fontFamily="@font/varelaround"
             android:text="Ticket Price"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="@+id/ticketPrice"
@@ -124,12 +131,15 @@
             android:id="@+id/ticketPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/varelaround"
             android:text="£xxx"
             android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/destination" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -185,7 +195,8 @@
                 android:id="@+id/sourceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/montserrat"
                 android:text="I want my offset to come from:"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -215,6 +226,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat"
                 android:text="I want to offset 0% of my emissions."
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -237,6 +249,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
+                android:fontFamily="@font/varelaround"
                 android:text="Offset Price"
                 android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="@+id/offsetPrice"
@@ -248,9 +261,10 @@
                 android:id="@+id/offsetPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
+                android:fontFamily="@font/varelaround"
                 android:text="£xxx"
                 android:textSize="32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
