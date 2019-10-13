@@ -53,12 +53,21 @@ class FlightDetailsActivity : AppCompatActivity() {
         showOptionsLoading()
 
         intent.flightParams
-            ?.run {
-                totalPrice = price
-                ticketPrice.text = "£${price}"
+            ?.let {
+
+                airlineName.text = it.airlineName
+                departure.text = it.departure
+                arrival.text = it.arrival
+                origin.text = it.origin
+                destination.text = it.destination
+                duration.text = it.duration
+
+
+                totalPrice = it.price
+                ticketPrice.text = "£${it.price}"
                 cta.text = "Confirm £${totalPrice}"
                 DataSourceProvider.offsetDataSource
-                    .getOffsetOptions(origin, emission)
+                    .getOffsetOptions(it.origin, it.emission)
                     .subscribe(
                         { showOptions(it) },
                         {

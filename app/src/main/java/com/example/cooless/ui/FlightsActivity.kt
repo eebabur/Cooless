@@ -61,7 +61,7 @@ class FlightsActivity : AppCompatActivity() {
             origin = flight.origin,
             departure = flight.departure,
             destination = flight.destination,
-            arrival = flight.destination,
+            arrival = flight.arrival,
             duration = flight.duration,
             price = flight.price,
             emission = flight.emission
