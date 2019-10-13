@@ -15,6 +15,7 @@ import com.example.cooless.model.OffsetOption
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import java.lang.StringBuilder
 
 object DataSourceProvider {
 
@@ -79,6 +80,7 @@ class FlightDataSourceImpl(private val service: DuffelInterface) : FlightDataSou
                             departure = formatTime(it.slices[0].segments[0].departingAt),
                             destination = to,
                             arrival = formatTime(it.slices[0].segments[0].arrivingAt),
+                            duration = it.slices[0].segments[0].duration,
                             price = it.totalAmount,
                             emissionAdvantage = if (it.totalEmissionsKg.toDouble() <= avg * 0.8f) ((it.totalEmissionsKg.toDouble() / avg) * 100).toInt() else null
                         )

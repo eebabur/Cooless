@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.cooless.R
 import com.example.cooless.model.Flight
 
-class FlightAdapter(private val onItemClick: (Flight) -> Unit) : RecyclerView.Adapter<FlightAdapter.FlightViewHolder>() {
+class FlightAdapter(private val onItemClick: (Flight) -> Unit) :
+    RecyclerView.Adapter<FlightAdapter.FlightViewHolder>() {
 
     private var flights: List<Flight> = emptyList()
 
@@ -20,7 +20,13 @@ class FlightAdapter(private val onItemClick: (Flight) -> Unit) : RecyclerView.Ad
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlightViewHolder =
-        FlightViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_flight, parent, false))
+        FlightViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.item_flight,
+                parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = flights.size
 
