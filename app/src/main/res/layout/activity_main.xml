@@ -73,6 +73,7 @@
                 android:id="@+id/from"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
                 android:text="JFK" />
 
             <TextView
@@ -86,6 +87,7 @@
                 android:id="@+id/to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
                 android:text="LHR" />
 
             <TextView
@@ -100,6 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:editable="false"
+                android:fontFamily="@font/montserrat"
                 android:text="2020-02-09" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -120,4 +123,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/form" />
+
+    <ImageView
+        android:id="@+id/profileLink"
+        android:layout_width="42dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_user" />
 </androidx.constraintlayout.widget.ConstraintLayout>
