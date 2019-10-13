@@ -9,6 +9,4 @@ public class Data {
     public List<Slice> slices;
     @SerializedName("offers")
     public List<Offer> offers;
-    @SerializedName("passengers")
-    public List<Passenger> passengers;
 }

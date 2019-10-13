@@ -1,5 +1,6 @@
 package com.example.cooless.API;
 
+import com.example.cooless.POJOs.DuffelRequests.DataRequest;
 import com.example.cooless.POJOs.responseDuffel.MainResponse;
 import com.example.cooless.POJOs.ReqObject;
 
@@ -24,5 +25,5 @@ public interface DuffelInterface {
             "Content-Length: 259",
             "Connection: keep-alive",
     })
-    Single<MainResponse> getAllOffers(@Body ReqObject reqObject);
+    Single<MainResponse> getAllOffers(@Body DataRequest reqObject);
 }
