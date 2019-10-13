@@ -37,14 +37,17 @@ class FlightAdapter(private val onItemClick: (Flight) -> Unit) : RecyclerView.Ad
         val destination: TextView = view.findViewById(R.id.destination)
         val arrival: TextView = view.findViewById(R.id.arrival)
         val price: TextView = view.findViewById(R.id.ticketPrice)
+        val leaf: ImageView = view.findViewById(R.id.leaf)
 
         fun bind(flight: Flight, onItemClick: (Flight) -> Unit) {
             itemView.setOnClickListener { onItemClick(flight) }
             if (flight.emissionAdvantage != null) {
                 emissionAdvantage.text = "${flight.emissionAdvantage}% lower CO2 emission"
                 emissionAdvantage.visibility = View.VISIBLE
+                leaf.visibility = View.VISIBLE
             } else {
                 emissionAdvantage.visibility = View.GONE
+                leaf.visibility = View.GONE
             }
             Glide.with(airlinePicture).load(flight.airlinePicture).into(airlinePicture);
             airlineName.text = flight.airlineName

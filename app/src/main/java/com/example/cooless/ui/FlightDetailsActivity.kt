@@ -7,6 +7,7 @@ import android.transition.TransitionManager
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cooless.API.FlightsNetworkEntity
 import com.example.cooless.APIProvider
@@ -33,6 +34,8 @@ class FlightDetailsActivity : AppCompatActivity() {
     lateinit var duration: TextView
     lateinit var ticketPrice: TextView
     lateinit var offsetPrice: TextView
+    lateinit var infoExpanded: ImageView
+    lateinit var infoCollapsed: ImageView
     lateinit var offsetCta: View
     lateinit var offsetContainer: View
     lateinit var choiceContainer: View
@@ -81,36 +84,25 @@ class FlightDetailsActivity : AppCompatActivity() {
         }
 
         cta.setOnClickListener {
-            APIProvider.flightService
-                .getFlights(
-                    FlightsNetworkEntity(
-                        FlightsNetworkEntity.RequestDataObject(
-                            "economy",
-                            listOf(
-                                FlightsNetworkEntity.RequestDataObject.Slice(
-                                    "2020-02-09",
-                                    "JFK",
-                                    "LHR"
-                                )
-                            ),
-                            listOf(
-                                FlightsNetworkEntity.RequestDataObject.Passenger("adult")
-                            )
-                        )
-                    )
-                )
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                    { Log.d("EMRE", it.toString()) },
-                    { throw it }
-                )
+            val confirmationParams = ConfirmationActivity.ConfirmationParams(intent.flightParams!!.price, totalPrice - intent.flightParams!!.price)
+            val intent = ConfirmationActivity.createIntent(this, confirmationParams)
+            startActivity(intent)
         }
+
+        infoExpanded.setOnClickListener { showInfoDialog() }
+        infoCollapsed.setOnClickListener { showInfoDialog() }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    private fun showInfoDialog() {
+        AlertDialog.Builder(this)
+            .setView(R.layout.item_flight)
+            .create()
+            .show()
     }
 
     private fun setViews() {
@@ -125,6 +117,8 @@ class FlightDetailsActivity : AppCompatActivity() {
         ticketPrice = findViewById(R.id.ticketPrice)
         offsetPrice = findViewById(R.id.offsetPrice)
         offsetCta = findViewById(R.id.offsetCta)
+        infoCollapsed = findViewById(R.id.info_collapsed)
+        infoExpanded = findViewById(R.id.info_expanded)
         offsetContainer = findViewById(R.id.offsetContainer)
         choiceContainer = findViewById(R.id.choiceContainer)
         optionsLoadingSpinner = findViewById(R.id.optionsLoadingSpinner)
