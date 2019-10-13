@@ -2,7 +2,7 @@ package com.example.cooless
 
 import android.util.Log
 import com.example.cooless.API.CloverlyInterface
-import com.example.cooless.API.DuffelService
+import com.example.cooless.API.DuffelInterface
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,6 +35,6 @@ object APIProvider {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
-            .create(DuffelService::class.java)
+            .create(DuffelInterface::class.java)
     }
 }
