@@ -8,6 +8,7 @@ object LogoMapper {
         "Swiss International Air Lines" to R.drawable.ic_swiss_logo,
         "Vueling Airlines" to R.drawable.ic_logo_vueling,
         "Level Airlines" to R.drawable.ic_level,
+        "Lufthansa" to R.drawable.ic_lufthansa,
         "default" to R.drawable.ic_british_airways_logo
     )
 }
