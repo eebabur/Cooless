@@ -2,16 +2,15 @@ package com.example.cooless
 
 import com.example.cooless.API.CloverlyInterface
 import com.example.cooless.API.DuffelInterface
+import com.example.cooless.POJOs.*
 import com.example.cooless.POJOs.DuffelRequests.DataObject
 import com.example.cooless.POJOs.DuffelRequests.DataRequest
 import com.example.cooless.POJOs.DuffelRequests.Passenger
 import com.example.cooless.POJOs.DuffelRequests.Slice
-import com.example.cooless.POJOs.OffsetLocation
-import com.example.cooless.POJOs.OffsetMatch
-import com.example.cooless.POJOs.OffsetRequest
-import com.example.cooless.POJOs.OffsetWeight
 import com.example.cooless.model.Flight
 import com.example.cooless.model.OffsetOption
+import com.example.cooless.model.OffsetReceipt
+import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -26,6 +25,7 @@ object DataSourceProvider {
 interface OffsetDataSource {
 
     fun getOffsetOptions(from: String, mass: Int): Single<List<OffsetOption>>
+    fun makePayment(slug: String): Single<OffsetReceipt>
 }
 
 interface FlightDataSource {
@@ -49,6 +49,12 @@ class OffsetDataSourceImpl(private val service: CloverlyInterface) : OffsetDataS
             }
             .observeOn(AndroidSchedulers.mainThread())
     }
+
+    override fun makePayment(slug: String): Single<OffsetReceipt>  =
+        service.purchase(PaymentRequest(slug))
+            .subscribeOn(Schedulers.io())
+            .map { OffsetReceipt(it.offset.name, it.offset.category, it.prettyUrl) }
+            .observeOn(AndroidSchedulers.mainThread())
 }
 
 class FlightDataSourceImpl(private val service: DuffelInterface) : FlightDataSource {

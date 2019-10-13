@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.cooless.DataSourceProvider
 import com.example.cooless.R
 import me.eugeniomarletti.extras.intent.IntentExtra
 import me.eugeniomarletti.extras.intent.base.Serializable
@@ -45,9 +46,17 @@ class PaymentActivity : AppCompatActivity() {
             }
 
         confirmButton.setOnClickListener {
-            val params = ConfirmationActivity.ConfirmationParams("Emre", "Emre", "www.google.com")
-            val intent = ConfirmationActivity.createIntent(this, params)
-            startActivity(intent)
+
+            DataSourceProvider.offsetDataSource.makePayment(intent.paymentParams!!.offsetSlug)
+                .subscribe(
+                    {
+                        val params = ConfirmationActivity.ConfirmationParams(it.name, it.category, it.url)
+                        val intent = ConfirmationActivity.createIntent(this, params)
+                        startActivity(intent)
+                    },
+                    {}
+                )
+
         }
     }
 
@@ -75,6 +84,7 @@ class PaymentActivity : AppCompatActivity() {
 
     data class PaymentParams(
         val flightPrice: Int,
-        val offsetPrice: Int
+        val offsetPrice: Int,
+        val offsetSlug: String
     ) : Serializable
 }
