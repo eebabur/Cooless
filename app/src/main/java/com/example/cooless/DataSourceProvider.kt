@@ -10,6 +10,7 @@ import com.example.cooless.POJOs.DuffelRequests.DataObject
 import com.example.cooless.POJOs.DuffelRequests.Passenger
 import com.example.cooless.POJOs.DuffelRequests.Slice
 import com.example.cooless.POJOs.responseDuffel.MainResponse
+import com.example.cooless.POJOs.responseDuffel.Offer
 import com.example.cooless.model.FlightsResponse
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -28,7 +29,7 @@ interface OffsetDataSource {
 
 interface FlightDataSource {
 
-    fun getAllFlights(): Single<MainResponse>
+    fun getAllFlights(from: String, to: String, date: String): Single<List<Flight>>
 }
 
 class OffsetDataSourceImpl(private val service: CloverlyInterface) : OffsetDataSource {
@@ -49,6 +50,24 @@ class OffsetDataSourceImpl(private val service: CloverlyInterface) : OffsetDataS
     }
 }
 
+fun makeFlights(data: List<Offer>, date: String, from: String, to: String): List<Flight> {
+    val flights = data.map {
+            Flight(
+                "",
+                "",
+                from,
+                it.slices[0].segments[0].departingAt,
+                to,
+                it.slices[0].segments[0].arrivingAt,
+                it.totalAmount,
+                0
+            )
+
+    }
+    return flights;
+
+}
+
 class FlightDataSourceImpl(private val service: DuffelInterface) : FlightDataSource {
     override fun getAllFlights(from: String, to: String, date: String): Single<List<Flight>> {
         val slices = ArrayList<Slice>();
@@ -63,8 +82,9 @@ class FlightDataSourceImpl(private val service: DuffelInterface) : FlightDataSou
 
 
         return service.getAllOffers(flightsRequest)
-            .map { it.data }
-            .map { it.slices }
-            .map { Flight(airlinePicture = "", airlineName = "", origin)}
+            .subscribeOn(Schedulers.io())
+            .map { makeFlights(it.data.offers, date, from, to) }
+            .observeOn(AndroidSchedulers.mainThread())
+
     }
 }
