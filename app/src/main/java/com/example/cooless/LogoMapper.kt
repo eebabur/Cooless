@@ -11,4 +11,3 @@ object LogoMapper {
         "default" to R.drawable.ic_british_airways_logo
     )
 }
-
