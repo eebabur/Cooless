@@ -84,8 +84,8 @@ class FlightDetailsActivity : AppCompatActivity() {
         }
 
         cta.setOnClickListener {
-            val confirmationParams = ConfirmationActivity.ConfirmationParams(intent.flightParams!!.price, totalPrice - intent.flightParams!!.price)
-            val intent = ConfirmationActivity.createIntent(this, confirmationParams)
+            val paymentParams = PaymentActivity.PaymentParams(intent.flightParams!!.price, totalPrice - intent.flightParams!!.price)
+            val intent = PaymentActivity.createIntent(this, paymentParams)
             startActivity(intent)
         }
 
