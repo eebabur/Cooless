@@ -100,7 +100,7 @@ class FlightDetailsActivity : AppCompatActivity() {
 
     private fun showInfoDialog() {
         AlertDialog.Builder(this)
-            .setView(R.layout.item_flight)
+            .setView(R.layout.info_modal)
             .create()
             .show()
     }
