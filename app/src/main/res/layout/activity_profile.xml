@@ -97,8 +97,10 @@
 
     <Switch
         android:id="@+id/paymentSwitch"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="52dp"
         android:switchPadding="20dp"
         android:text="One-Click Payment"
@@ -108,8 +110,10 @@
 
     <Switch
         android:id="@+id/emissionsSwitch"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
         android:switchPadding="20dp"
         android:text="Lower Emissions First"
