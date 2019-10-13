@@ -45,7 +45,9 @@ class PaymentActivity : AppCompatActivity() {
             }
 
         confirmButton.setOnClickListener {
-            Toast.makeText(this, "Congrats!", Toast.LENGTH_SHORT).show()
+            val params = ConfirmationActivity.ConfirmationParams("Emre", "Emre", "www.google.com")
+            val intent = ConfirmationActivity.createIntent(this, params)
+            startActivity(intent)
         }
     }
 

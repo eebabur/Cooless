@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/montserrat"
-            android:text="Wednesday, dd Mmm yyyy"
+            android:text="Sunday, 09 Feb 2020"
             app:layout_constraintStart_toStartOf="@+id/departure"
             app:layout_constraintTop_toBottomOf="@+id/airlinePicture" />
 

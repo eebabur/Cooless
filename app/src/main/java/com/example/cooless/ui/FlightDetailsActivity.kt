@@ -177,9 +177,9 @@ class FlightDetailsActivity : AppCompatActivity() {
     data class FlightParams(
         val airlinePicture: String = "https://www.airporthaber.com/wk-uploads/news/thy2_1017.jpg",
         val airlineName: String = "Turkish Airlines",
-        val day: String = "13",
-        val month: String = "10",
-        val year: String = "2019",
+        val day: Int = 9,
+        val month: Int = 2,
+        val year: Int = 2020,
         val origin: String = "FRA",
         val departure: String = "14:20",
         val destination: String = "LHR",
