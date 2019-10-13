@@ -35,7 +35,7 @@ class FlightsActivity : AppCompatActivity() {
         supportActionBar?.setTitle("${intent.searchParams?.from} - ${intent.searchParams?.to} / ${intent.searchParams?.date}".toUpperCase())
 
         list.layoutManager = LinearLayoutManager(this)
-        adapter = FlightAdapter { showFlightDetails() }
+        adapter = FlightAdapter { showFlightDetails(it) }
         list.adapter = adapter
 
         retryButton.setOnClickListener {
@@ -55,8 +55,17 @@ class FlightsActivity : AppCompatActivity() {
         return true
     }
 
-    private fun showFlightDetails() {
-        val params = FlightParams()
+    private fun showFlightDetails(flight: Flight) {
+        val params = FlightParams(
+            airlineName = flight.airlineName,
+            origin = flight.origin,
+            departure = flight.departure,
+            destination = flight.destination,
+            arrival = flight.destination,
+            duration = flight.duration,
+            price = flight.price,
+            emission = flight.emission
+        )
         val intent = FlightDetailsActivity.createIntent(this, params)
         startActivity(intent)
     }

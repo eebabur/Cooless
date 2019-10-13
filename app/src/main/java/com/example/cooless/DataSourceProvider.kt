@@ -80,8 +80,9 @@ class FlightDataSourceImpl(private val service: DuffelInterface) : FlightDataSou
                             departure = formatTime(it.slices[0].segments[0].departingAt),
                             destination = to,
                             arrival = formatTime(it.slices[0].segments[0].arrivingAt),
-                            duration = it.slices[0].segments[0].duration,
-                            price = it.totalAmount,
+                            duration = it.slices[0].segments[0].duration.substring(2),
+                            price = it.totalAmount.toFloat().toInt(),
+                            emission = it.totalEmissionsKg.toFloat().toInt(),
                             emissionAdvantage = if (it.totalEmissionsKg.toDouble() <= avg * 0.8f) ((it.totalEmissionsKg.toDouble() / avg) * 100).toInt() else null
                         )
                     }

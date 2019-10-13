@@ -175,17 +175,13 @@ class FlightDetailsActivity : AppCompatActivity() {
     }
 
     data class FlightParams(
-        val airlinePicture: String = "https://www.airporthaber.com/wk-uploads/news/thy2_1017.jpg",
-        val airlineName: String = "Turkish Airlines",
-        val day: Int = 9,
-        val month: Int = 2,
-        val year: Int = 2020,
-        val origin: String = "FRA",
-        val departure: String = "14:20",
-        val destination: String = "LHR",
-        val arrival: String = "22:05",
-        val duration: String = "1h 25m",
-        val price: Int = 232,
-        val emission: Int = 50
+        val airlineName: String,
+        val origin: String,
+        val departure: String,
+        val destination: String,
+        val arrival: String,
+        val duration: String,
+        val price: Int,
+        val emission: Int
     ) : Serializable
 }
