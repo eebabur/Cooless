@@ -40,6 +40,8 @@ class FlightDetailsActivity : AppCompatActivity() {
 
     private var totalPrice: Int = 0
 
+    private var offsetOptions: List<OffsetOption>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flight_details)
@@ -79,7 +81,9 @@ class FlightDetailsActivity : AppCompatActivity() {
         cta.setOnClickListener {
             val paymentParams = PaymentActivity.PaymentParams(
                 intent.flightParams!!.price,
-                totalPrice - intent.flightParams!!.price
+                totalPrice - intent.flightParams!!.price,
+                offsetOptions!!.first().slug
+
             )
             val intent = PaymentActivity.createIntent(this, paymentParams)
             startActivity(intent)
@@ -130,6 +134,7 @@ class FlightDetailsActivity : AppCompatActivity() {
     }
 
     private fun showOptions(list: List<OffsetOption>) {
+        offsetOptions = list
         val adapter = ArrayAdapter<String>(
             this,
             android.R.layout.simple_spinner_dropdown_item,
