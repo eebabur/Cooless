@@ -4,12 +4,19 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.transition.TransitionManager
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cooless.API.FlightsNetworkEntity
+import com.example.cooless.APIProvider
 import com.example.cooless.DataSourceProvider
 import com.example.cooless.R
 import com.example.cooless.model.OffsetOption
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import me.eugeniomarletti.extras.intent.IntentExtra
 import me.eugeniomarletti.extras.intent.base.Serializable
 import java.io.Serializable
@@ -72,6 +79,33 @@ class FlightDetailsActivity : AppCompatActivity() {
             offsetCta.visibility = View.GONE
             offsetContainer.visibility = View.VISIBLE
         }
+
+        cta.setOnClickListener {
+            APIProvider.flightService
+                .getFlights(
+                    FlightsNetworkEntity(
+                        FlightsNetworkEntity.RequestDataObject(
+                            "economy",
+                            listOf(
+                                FlightsNetworkEntity.RequestDataObject.Slice(
+                                    "2020-02-09",
+                                    "JFK",
+                                    "LHR"
+                                )
+                            ),
+                            listOf(
+                                FlightsNetworkEntity.RequestDataObject.Passenger("adult")
+                            )
+                        )
+                    )
+                )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { Log.d("EMRE", it.toString()) },
+                    { throw it }
+                )
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -131,9 +165,11 @@ class FlightDetailsActivity : AppCompatActivity() {
                     fromUser: Boolean
                 ) {
                     amountLabel.text = "I want to offset ${progress}% of my emissions."
-                    totalPrice = (intent.flightParams!!.price + progress * list.first().cost).toInt()
+                    totalPrice =
+                        (intent.flightParams!!.price + progress * list.first().cost).toInt()
                     offsetPrice.text = "£${(progress * list.first().cost).toInt()}"
-                    if(progress == 0) cta.text = "Confirm £${totalPrice}" else cta.text = "Offset and Go £${totalPrice}"
+                    if (progress == 0) cta.text = "Confirm £${totalPrice}" else cta.text =
+                        "Offset and Go £${totalPrice}"
                 }
             }
         )
