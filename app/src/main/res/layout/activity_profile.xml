@@ -8,17 +8,6 @@
     tools:context=".ui.ProfileActivity"
     >
 
-    <ImageView
-        android:id="@+id/userIcon"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/milestoneCard"
-        tools:background="@color/colorAccent" />
-
     <TextView
         android:id="@+id/userName"
         android:layout_width="177dp"
@@ -36,9 +25,9 @@
         android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="30dp"
         android:text="useremail@email.com"
-        app:layout_constraintStart_toEndOf="@+id/userIcon"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <include
@@ -66,7 +55,7 @@
         android:layout_marginTop="50dp"
         android:text="Passport No."
         app:layout_constraintStart_toStartOf="@+id/passportField"
-        app:layout_constraintTop_toBottomOf="@+id/userIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/preferences"
@@ -113,6 +102,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
+        android:checked="true"
         android:fontFamily="@font/montserrat"
         android:switchPadding="20dp"
         android:text="Lower Emissions First"
@@ -129,6 +119,16 @@
         android:text="Date of Birth"
         app:layout_constraintStart_toStartOf="@+id/dobField"
         app:layout_constraintTop_toBottomOf="@+id/passportField" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/milestoneCard"
+        app:srcCompat="@drawable/ic_user" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

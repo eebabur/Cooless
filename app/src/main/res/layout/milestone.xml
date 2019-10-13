@@ -46,12 +46,13 @@
             android:id="@+id/milestoneIcon"
             android:layout_width="86dp"
             android:layout_height="81dp"
-            android:layout_marginStart="64dp"
+            android:layout_marginStart="52dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@color/colorAccent" />
+            app:srcCompat="@drawable/ic_forest"
+            tools:background="#FFFFFF" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
