@@ -1,8 +1,8 @@
 package com.example.cooless.model
 
 data class Flight(
-    val airlinePicture: String,
     val airlineName: String,
+    val date: String,
     val origin: String,
     val departure: String,
     val destination: String,

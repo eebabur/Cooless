@@ -5,6 +5,7 @@
     package="com.example.cooless">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".CoolessApp"
         android:allowBackup="true"
@@ -15,7 +16,7 @@
         android:theme="@style/AppTheme"
         android:hardwareAccelerated="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.ProfileActivity"></activity>
+        <activity android:name=".ui.ProfileActivity" />
         <activity android:name=".ui.ConfirmationActivity" />
         <activity android:name=".ui.PaymentActivity" />
         <activity android:name=".ui.FlightDetailsActivity" />

@@ -4,20 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.transition.TransitionManager
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cooless.API.FlightsNetworkEntity
-import com.example.cooless.APIProvider
 import com.example.cooless.DataSourceProvider
 import com.example.cooless.R
 import com.example.cooless.model.OffsetOption
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import me.eugeniomarletti.extras.intent.IntentExtra
 import me.eugeniomarletti.extras.intent.base.Serializable
 import java.io.Serializable
@@ -84,7 +77,10 @@ class FlightDetailsActivity : AppCompatActivity() {
         }
 
         cta.setOnClickListener {
-            val paymentParams = PaymentActivity.PaymentParams(intent.flightParams!!.price, totalPrice - intent.flightParams!!.price)
+            val paymentParams = PaymentActivity.PaymentParams(
+                intent.flightParams!!.price,
+                totalPrice - intent.flightParams!!.price
+            )
             val intent = PaymentActivity.createIntent(this, paymentParams)
             startActivity(intent)
         }

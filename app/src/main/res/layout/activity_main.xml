@@ -75,6 +75,7 @@
                 android:id="@+id/from"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="JFK"
                 />
 
             <TextView
@@ -88,6 +89,7 @@
                 android:id="@+id/to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="LHR"
                 />
 
             <TextView
@@ -102,6 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:editable="false"
+                android:text="2020-02-09"
                 />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

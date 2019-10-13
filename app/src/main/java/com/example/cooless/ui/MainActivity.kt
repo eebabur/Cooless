@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showDatePickerDialog() {
         val dialog = DatePickerDialog(this)
-        dialog.setOnDateSetListener { view, year, month, dayOfMonth -> date.text = "$dayOfMonth-$month-$year" }
+        dialog.setOnDateSetListener { view, year, month, dayOfMonth -> date.text = "$year-$month-$dayOfMonth" }
         dialog.show()
     }
 

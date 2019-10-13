@@ -49,13 +49,14 @@ class FlightAdapter(private val onItemClick: (Flight) -> Unit) : RecyclerView.Ad
                 emissionAdvantage.visibility = View.GONE
                 leaf.visibility = View.GONE
             }
-            Glide.with(airlinePicture).load(flight.airlinePicture).into(airlinePicture);
+
+            //Glide.with(airlinePicture).load(flight.airlinePicture).into(airlinePicture);
             airlineName.text = flight.airlineName
             origin.text = flight.origin
             departure.text = flight.departure
             destination.text = flight.destination
             arrival.text = flight.arrival
-            price.text = flight.price
+            price.text = "£${flight.price}"
         }
     }
 }
