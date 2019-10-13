@@ -8,7 +8,9 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.cooless.DataSourceProvider
+import com.example.cooless.LogoMapper
 import com.example.cooless.R
 import com.example.cooless.model.OffsetOption
 import me.eugeniomarletti.extras.intent.IntentExtra
@@ -55,6 +57,7 @@ class FlightDetailsActivity : AppCompatActivity() {
         intent.flightParams
             ?.let {
 
+                Glide.with(airlinePicture).load(LogoMapper.airlineLogos.get(it.airlineName) ?: LogoMapper.airlineLogos.get("default")).into(airlinePicture);
                 airlineName.text = it.airlineName
                 departure.text = it.departure
                 arrival.text = it.arrival

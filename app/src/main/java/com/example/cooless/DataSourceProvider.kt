@@ -78,6 +78,7 @@ class FlightDataSourceImpl(private val service: DuffelInterface) : FlightDataSou
                     .average()
 
                 it.data.offers
+                    .filter { it.slices.first().segments.size == 1 }
                     .map {
                         Flight(
                             airlineName = it.owner.name,
