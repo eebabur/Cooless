@@ -1,6 +1,6 @@
 package com.example.cooless.API;
 
-import com.example.cooless.POJOs.withData;
+import com.example.cooless.POJOs.responseDuffel.MainResponse;
 import com.example.cooless.POJOs.ReqObject;
 
 
@@ -16,8 +16,12 @@ public interface DuffelInterface {
             "Content-Type: application/json",
             "Duffel-Version: beta",
             "Accept: application/json",
-            "Accept-Encoding: gzip",
-            "Authorization: Bearer test_yGfnlHtnjj6_hDlo1uAgOyKRmsl3_9uiWU6PpdqzKlE"
+            "Authorization: Bearer test_yGfnlHtnjj6_hDlo1uAgOyKRmsl3_9uiWU6PpdqzKlE",
+            "Cache-Control: no-cache",
+            "Postman-Token: a18c943d-7975-48fd-b578-512c8bbad9a9",
+            "Host: api.duffel.com",
+            "Content-Length: 259",
+            "Connection: keep-alive",
     })
-    Call<withData> getAllOffers(@Body ReqObject reqObject);
+    Call<MainResponse> getAllOffers(@Body ReqObject reqObject);
 }

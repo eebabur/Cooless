@@ -19,19 +19,20 @@ public class APIClient {
 
     public static Retrofit getClient(String url) {
 
-        // OkHttpClient client = new OkHttpClient.Builder().build();
-
-        Gson gson = new GsonBuilder().setLenient().create();
-
 //        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 //        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().build();
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         return retrofit;

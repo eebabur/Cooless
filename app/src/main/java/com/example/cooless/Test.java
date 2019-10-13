@@ -2,11 +2,11 @@ package com.example.cooless;
 
 import com.example.cooless.API.APIClient;
 import com.example.cooless.API.DuffelInterface;
-import com.example.cooless.POJOs.MainData;
 import com.example.cooless.POJOs.RequestData;
 import com.example.cooless.POJOs.RequestSlice;
 import com.example.cooless.POJOs.RequestPassenger;
 import com.example.cooless.POJOs.ReqObject;
+import com.example.cooless.POJOs.responseDuffel.MainResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +31,14 @@ public class Test {
         ReqObject reqObject = new ReqObject(requestData);
         apiInterface = APIClient.getClient("https://api.duffel.com/air/").create(DuffelInterface.class);
         Call call1 = apiInterface.getAllOffers(reqObject);
-        call1.enqueue(new Callback<MainData>() {
+        call1.enqueue(new Callback<MainResponse>() {
             @Override
-            public void onResponse(Call<MainData> call, Response<MainData> response) {
+            public void onResponse(Call<MainResponse> call, Response<MainResponse> response) {
                 System.out.println(response.body());
             }
 
             @Override
-            public void onFailure(Call<MainData> call, Throwable t) {
+            public void onFailure(Call<MainResponse> call, Throwable t) {
                 call.cancel();
             }
         });
