@@ -36,12 +36,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
         android:text="ready, offset, go!"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/form"
@@ -68,8 +68,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="From"
-                />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="From" />
 
             <EditText
                 android:id="@+id/from"
@@ -80,9 +80,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="To"
                 android:layout_marginTop="8dp"
-                />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="To" />
 
             <EditText
                 android:id="@+id/to"
@@ -93,9 +93,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Departure Date"
                 android:layout_marginTop="8dp"
-                />
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Departure Date" />
 
             <EditText
                 android:id="@+id/date"
@@ -113,6 +113,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/button_bg"
+        android:fontFamily="@font/varelaround"
         android:padding="12dp"
         android:text="Search!"
         android:textColor="@android:color/white"
